@@ -1,0 +1,73 @@
+{{define "nav"}}
+
+{{$currentLocation := "."}}
+
+
+<nav class="fh5co-nav" role="navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-2">
+                <div id="fh5co-logo">
+                    {{if $.English}}
+                    <a href="index.html?lang=en">
+                    {{else}}
+                        <a href="index.html?lang=it">
+                    {{end}}
+
+                        Viviana &amp; Mattia</a></div>
+            </div>
+            <div class="col-xs-10 text-right menu-1">
+                <ul>
+                    {{range $page := .Pages}}
+                        {{if $page.Active}}
+                            <li class="active">
+                                {{$currentLocation = $page.Location}}
+                        {{else}}
+                            <li>
+                        {{end}}
+                            {{if $.English}}
+                                <a href="{{$page.Location}}?lang=en">
+                                {{$page.NameEN}}
+                            {{else}}
+                                <a href="{{$page.Location}}?lang=it">
+                                {{$page.NameIT}}
+                            {{end}}
+                        </a>
+                </li>
+                    {{end}}
+
+
+
+                    <li class="has-dropdown">
+                        {{if $.English}}
+                            <a href="#"><span class="flag-icon flag-icon-gb"></span></a>
+                        {{else}}
+                            <a href="#"><span class="flag-icon flag-icon-it"></span></a>
+                        {{end}}
+
+                        <ul class="dropdown">
+                            {{if $.English}}
+                                {{if eq $currentLocation "attendance.html"}}
+                                <li><a href="{{$.LinkLang}}"><span class="flag-icon flag-icon-it"></span> Italiano</a></li>
+                                {{else}}
+                                <li><a href="{{$currentLocation}}?lang=it"><span class="flag-icon flag-icon-it"></span> Italiano</a></li>
+                                {{end}}
+                            {{else}}
+                                {{if eq $currentLocation "attendance.html"}}
+                                <li><a href="{{$.LinkLang}}"><span class="flag-icon flag-icon-gb"></span> English</a></li>
+                                {{else}}
+                                <li><a href="{{$currentLocation}}?lang=en"><span class="flag-icon flag-icon-gb"></span> English</a></li>
+                                {{end}}
+                            {{end}}
+
+
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</nav>
+{{end}}

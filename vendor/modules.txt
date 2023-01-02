@@ -1,0 +1,26 @@
+# github.com/evilsocket/islazy v1.10.6
+## explicit
+github.com/evilsocket/islazy/log
+github.com/evilsocket/islazy/tui
+# github.com/google/uuid v1.3.0
+## explicit
+github.com/google/uuid
+# github.com/mattn/go-sqlite3 v1.14.9
+## explicit; go 1.12
+github.com/mattn/go-sqlite3
+# github.com/patrickmn/go-cache v2.1.0+incompatible
+## explicit
+github.com/patrickmn/go-cache
+# golang.org/x/crypto v0.0.0-20211215153901-e495a2d5b3d3
+## explicit; go 1.17
+golang.org/x/crypto/acme
+golang.org/x/crypto/acme/autocert
+# golang.org/x/net v0.0.0-20211112202133-69e39bad7dc2
+## explicit; go 1.17
+golang.org/x/net/idna
+# golang.org/x/text v0.3.6
+## explicit; go 1.11
+golang.org/x/text/secure/bidirule
+golang.org/x/text/transform
+golang.org/x/text/unicode/bidi
+golang.org/x/text/unicode/norm

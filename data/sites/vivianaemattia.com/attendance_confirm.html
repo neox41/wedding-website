@@ -1,0 +1,161 @@
+{{define "attendance_result"}}
+<script>
+    function checkAttendance(){
+        if(!$('option[disabled]:selected').length == 0){
+            $('#errorAttendance').show();
+            return false;
+        }
+        return true;
+    }
+</script>
+<div class="row animate-box">
+    <div class="col-md-12 text-center fh5co-heading">
+        <h2>
+            {{if $.English}}
+            Please confirm your attendance.
+            {{else}}
+            Si prega di confermare la vostra presenza.
+            {{end}}
+            </h2>
+        <form action="/attendance.html?lang={{if $.English}}en{{else}}it{{end}}" method="post" onSubmit="return checkAttendance()">
+            <input type="hidden" name="action" value="confirm" />
+            <input type="hidden" name="idLink" value="{{$.IdInvite}}" />
+
+
+
+
+
+
+            <div>
+                <table role="table" class="table" role="table" style="background: rgba(0, 0, 0, 0.4);">
+                    <thead role="rowgroup">
+                    <tr role="row">
+                        <th role="columnheader" class="align-middle">
+                            {{if $.English}}
+                            Name
+                            {{else}}
+                            Nome
+                            {{end}}
+                        </th>
+                        <th role="columnheader" >
+                            {{if $.English}}
+                            Alternative menu <i class="fas fa-info-circle" title="Flag your dietary preferences if you don't want the normal menu"></i>
+                            {{else}}
+                            Men&ugrave; alternativo <i class="fas fa-info-circle" title="Segnala le tue preferenze dietetiche se non desideri il menu normale"></i>
+                            {{end}}
+                        </th>
+
+                        <th role="columnheader" >
+                            {{if $.English}}
+                            Allergies
+                            {{else}}
+                            Allergie
+                            {{end}}
+                        </th>
+                        <th role="columnheader" >
+                            {{if $.English}}
+                            Transport needed <i class="fas fa-info-circle" title="From the church to the restaurant"></i>
+                            {{else}}
+                            Necessit&agrave; trasporto <i class="fas fa-info-circle" title="Dalla chiesa al ristorante"></i>
+                            {{end}}
+                        </th>
+                        <th role="columnheader" >
+                            {{if $.English}}
+                            Attendance
+                            {{else}}
+                            Presenza
+                            {{end}}
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody role="rowgroup" class="text-left">
+                    {{range $attendee := $.Attendees}}
+                    <tr role="row">
+                        <td role="cell">
+                            {{$attendee.Name}}
+                        </td>
+                        <td role="cell">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="yes" name="vegan{{$attendee.ID}}" id="vegan{{$attendee.ID}}">
+                                <label class="form-check-label" for="vegan{{$attendee.ID}}">
+                                    {{if $.English}}
+                                    Vegan
+                                    {{else}}
+                                    Vegano
+                                    {{end}}
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="checkbox" value="yes" name="vegetarian{{$attendee.ID}}" id="vegetarian{{$attendee.ID}}">
+                                <label class="form-check-label" for="vegetarian{{$attendee.ID}}">
+                                    {{if $.English}}
+                                    Vegetarian
+                                    {{else}}
+                                    Vegetariano
+                                    {{end}}
+                                </label>
+
+                            </div>
+
+                        </td>
+                        <td role="cell">
+                            <input class="form-check-input" type="text" value="" name="requirements{{$attendee.ID}}" id="requirements{{$attendee.ID}}">
+
+                        </td>
+                        <td role="cell">
+                            <input class="form-check-input" type="checkbox" value="yes" name="transport{{$attendee.ID}}" id="transport{{$attendee.ID}}">
+                            <label class="form-check-label" for="transport{{$attendee.ID}}">
+                                {{if $.English}}
+                                Yes
+                                {{else}}
+                                S&igrave;
+                                {{end}}
+                            </label>
+                        </td>
+
+                        <td role="cell">
+                            <select class="form-select" id="attendance{{$attendee.ID}}" name="attendance{{$attendee.ID}}">
+                                <option value="" selected disabled>...</option>
+                                <option value="yes">
+                                    {{if $.English}}
+                                    Yes
+                                    {{else}}
+                                    S&igrave;
+                                    {{end}}
+                                </option>
+                                <option value="no">
+                                    No
+                                </option>
+                            </select>
+
+                        </td>
+                    </tr>
+                    {{end}}
+
+
+                    </tbody>
+                </table>
+            </div>
+
+
+            <button type="submit" name="confirm" value="confirm" class="btn btn-default btn-block">
+                {{if $.English}}
+                Confirm
+                {{else}}
+                Conferma
+                {{end}}
+            </button>
+
+
+            <p id="errorAttendance" style="color: red; display: none">Error: <b>
+                {{if $.English}}
+                Please select the attendance for all your family
+                {{else}}
+                Si prega di selezionare la presenza per tutte le persone del vostro nucleo familiare
+                {{end}}
+            </b></p>
+        </form>
+        {{ template "attendance_error" . }}
+    </div>
+</div>
+
+{{end}}

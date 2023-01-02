@@ -1,0 +1,88 @@
+<html>
+<head>
+
+
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+      <script src="js/jquery-3.2.1.min.js"></script>
+
+    <title>Wedding Admin</title>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="js/moment.min.js"></script>
+      <script type="text/javascript" src="js/tempusdominus-bootstrap-4.min.js"></script>
+      <link rel="stylesheet" href="css/tempusdominus-bootstrap-4.min.css" />
+
+      <link rel="stylesheet" href="css/bootstrap-slider.min.css">
+
+      <link rel="stylesheet" href="css/bootstrap-switch.min.css" rel="stylesheet">
+      <script src="js/bootstrap-slider.js"></script>
+
+      <script src="js/bootstrap-switch.min.js"></script>
+      <script src="js/timezone_detect.js"></script>
+      <script src="js/bootstrap-input-spinner.js"></script>
+    <script src="js/toastr.min.js"></script>
+    <link href="css/toastr.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery.switchButton.css" rel="stylesheet">
+  <script src="js/jquery.switchButton.js"></script>
+  <link rel="stylesheet" href="css/tagsinput.css">
+          <script src="js/tagsinput.js"></script>
+
+<script type="text/javascript" src="js/stf.js"></script>
+<link rel="stylesheet" href="css/savethefridge.css" />
+<script type="text/javascript">
+
+
+</script>
+  </head>
+  <body>
+    <h2><p class="text-center"><b>Wedding Admin</b></p></h2>
+    <button type="button" class="btn btn-primary btn-lg btn-block" id="buttonViewFamilies">Families</button>
+    <button type="button" id="buttonViewItems" class="btn btn-info btn-lg btn-block">Attendees</button>
+    <button type="button" id="export" class="btn btn-warning btn-lg btn-block">Export DB</button>
+    <button type="button" data-toggle="modal" data-target="#importModalCenter" class="btn btn-secondary btn-lg btn-block">Reset DB & Upload CSV</button>
+
+
+    <!-- Modal import -->
+    <div class="modal fade" id="importModalCenter" tabindex="-1" role="dialog" aria-labelledby="importModalCenterTitle"
+         aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalLongTitle">Import Attendees CSV</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="phase" role="tabpanel" aria-labelledby="phase-tab">
+                <div class="form-group row">
+                  <label for="importForm" class="col-sm-3 col-form-label"><b>Import Attendees CSV:</b></label>
+                  <div class="col-sm-9">
+
+                    <form id="importForm">
+                      <input type="file" id="importFile" name="importFile" /><br />
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary btn-galileo" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-info btn-galileo" id="import">Import</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal import -->
+
+
+  <div id="loading" align="center"><div id="loading_box">Loading...</div></div>
+
+
+    </body>
+</html>

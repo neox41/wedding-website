@@ -1,0 +1,17 @@
+{{define "title"}}
+<title>
+
+
+  {{range $page := .Pages}}
+    {{if $page.Active}}
+      {{if $.English}}
+        {{$page.TitleEN}}
+      {{else}}
+        {{$page.TitleIT}}
+      {{end}}
+    {{end}}
+  {{end}}
+
+
+</title>
+{{end}}

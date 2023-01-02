@@ -1,0 +1,75 @@
+
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+body{
+background-color: #e6e6e6;
+color:#444;
+padding-top: 40px;
+
+line-height: 1.5;
+height:100%;
+
+font: normal 0.875rem/1.4rem "RobotoRegular", Arial,Helvetica,Sans-serif,Serif;
+
+}
+nav{
+  font-size: 1.17em;
+}
+.breadcrumb{
+  font-size: 1.10em;
+}
+nav.active{
+  color: #fff;
+}
+.toolbar{
+
+  font-size: 15px;
+}
+#loading {
+    display:none;
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background-image:url("black_trasp.png");
+    color: white;
+    z-index: 150;
+}
+.disabled {
+  cursor: not-allowed !important;
+}
+pre{
+
+  -ms-word-break: break-all;
+  word-break: break-all;
+
+  white-space: pre-wrap;       /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+
+  overflow: hidden;
+  position: relative;
+    line-height: 1.2rem;
+    text-indent: 0;
+    padding: 20px;
+
+}
+#loading_box {
+    background: url('loading.gif') no-repeat;
+    background-position: left 25px;
+    font-size: 17px;
+    text-align: right;
+    color: white;
+    width: 170px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -85px;
+    margin-top: -25px;
+}
